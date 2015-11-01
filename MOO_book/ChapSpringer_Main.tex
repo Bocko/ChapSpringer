@@ -1,4 +1,4 @@
-\documentclass{svmono}
+\documentclass{svmult}
 
 \usepackage[utf8x]{inputenc}
 %\usepackage{cite}
@@ -18,7 +18,10 @@
 \graphicspath{{./Figures//}}
 
 \begin{document}
-\chapter{MCDM applied to the partioning problem of 3D-stacked integrated circuits}
+\title*{MCDM applied to the partioning problem of 3D-stacked integrated circuits}
+\author{N.A.V. Doan, M. Milojevic, Y. De Smet}
+
+\maketitle
 
 \section{Introduction}
 
@@ -45,7 +48,7 @@ One of the solutions to face this problem is to develop high-level tools which c
 
 Currently, these high-level design tools can be considered to follow a uni-criterion paradigm. Indeed, they have sequential development steps and each criterion is optimized without considering the impact on other criteria. This can lead to several rollbacks in the design flow since the achievement of the requirements can be time consuming (typical design iterations are measured in weeks). For instance, current tools will only minimize the area of a circuit to reach the timing constraints by solving a 2D place-and-route problem and this will be more complex with 3D-SICs because the system has also to be partitioned.
 
-On the other hand, multi-objective approaches have been developed to optimize all the criteria simultaneously. Designing 3D-SICs inherently implies a huge design space and numerous degrees of freedom and criteria, hence many possible choices when it comes to decide upon the IC to produce. With these reasons, we propose in this work to apply a multi-criteria paradigm with the PROMETHEE methods for the design of 3D-SICs.
+On the other hand, multi-criteria approaches have been developed to consider all the criteria simultaneously. Designing 3D-SICs inherently implies a huge design space and numerous degrees of freedom and criteria, hence many possible choices when it comes to decide upon the IC to produce. With these reasons, we propose in this work to apply a multi-criteria paradigm with the PROMETHEE methods for the design of 3D-SICs.
 
 \section{Related works}
 
@@ -130,9 +133,7 @@ GAIA is the result of a principal component analysis applied on this dataset. Th
 % Section3: Case study
 \input{Section3.tex}
 
-\section{Case study}
-
-\section{Results}
+\subsection{Results}
 
 \section{Conclusion and future works}
 
