@@ -249,7 +249,7 @@ As a preliminary analysis, we will first consider the three best unicriterion al
 
 By analyzing the evaluations, we can remark that none of these three... [TODO]
 
-With these preliminary analyses, we can already provide valuable multi-criteria information to a designer so that trade-off decisions would be eased. However, until now we only have considered alternatives that are optimal on one of the criteria. These are therefore not necessarily suitable as compromise solutions. In the following we will use and analyze the PROMETHEE methods that will allow us to rank all the alternatives.
+With these preliminary analyses, we can already provide valuable multi-criteria information to a designer so that trade-off decisions would be eased. However, until now we only have considered alternatives that are optimal on one of the criteria. These are therefore not necessarily suitable as compromise solutions. In the following we will use and analyze the PROMETHEE methods, with the D-Sight Web platform~\cite{dsightweb,Hayez}, that will allow us to rank all the alternatives.
 
 \subsubsection{PROMETHEE modeling}
 The first step in the PROMETHEE methods is to model the decision maker's preferences. In our study, we will consider two production scenarios given by an expert in the IC design field. The first one will consider a case where economical aspects are more important than the performances while the second one will put more emphasis on the performances, allowing concession on the price. We will also make the assumption that the preference functions are based on the usual criterion to simplify the questions asked to a designer who is not familiar with preference modeling. We will also elicit the weight of the criteria following a procedure similar to what is used in AHP.
@@ -262,6 +262,17 @@ The weights elicitation for this case is represented in Figure~\ref{fig:elicitco
     \includegraphics[width=0.6\linewidth]{elicitcost.png}
     \caption{Weigths elicitation, low cost production scenario}
     \label{fig:elicitcost}
+\end{figure}
+
+The PROMETHEE II ranking with this preference model is shown in Figure~\ref{fig:rankingcost}. We remark that the three first-ranked alternatives are Auto1000~3, RandomL3~5 and RandomL3~8. Without great surprise, the best unicriterion alternatives on the total wire length and the maximum wire length criteria are well-ranked due to their higher weights while the Hier~L3~4 (best on the number of 3D nets) is ranked 43rd out of 70.
+
+Let us now analyze the Auto1000~3 alternative compared to the second and third ones.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=\linewidth]{rankingcost}
+    \caption{PROMETHEE II ranking, low cost production scenario}
+    \label{fig:rankingcost}
 \end{figure}
 
 \subsubsection*{Second scenario: high performance}
