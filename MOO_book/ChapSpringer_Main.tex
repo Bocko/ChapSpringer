@@ -260,20 +260,36 @@ The weights elicitation for this case is represented in Figure~\ref{fig:elicitco
 \begin{figure}[h!]
     \centering
     \includegraphics[width=0.6\linewidth]{elicitcost.png}
-    \caption{Weigths elicitation, low cost production scenario}
+    \caption{Low cost production scenario: weigths elicitation}
     \label{fig:elicitcost}
 \end{figure}
 
 The PROMETHEE II ranking with this preference model is shown in Figure~\ref{fig:rankingcost}. We remark that the three first-ranked alternatives are Auto1000~3, RandomL3~5 and RandomL3~8. Without great surprise, the best unicriterion alternatives on the total wire length and the maximum wire length criteria are well-ranked due to their higher weights while the Hier~L3~4 (best on the number of 3D nets) is ranked 43rd out of 70.
 
-Let us now analyze the Auto1000~3 alternative compared to the second and third ones.
-
 \begin{figure}[h!]
     \centering
     \includegraphics[width=\linewidth]{rankingcost}
-    \caption{PROMETHEE II ranking, low cost production scenario}
+    \caption{low cost production scenario: PROMETHEE II ranking}
     \label{fig:rankingcost}
 \end{figure}
+
+Let us now analyze the Auto1000~3 alternative compared to the second and third ones with their evaluations, as shown in Table~\ref{tab:top3cost}
+
+\begin{table}[h!]
+    \begin{center}
+        \caption{Low cost production scenario: top 3}
+        \label{tab:top3cost}
+        \begin{tabular}{p{1.2cm}p{2.3cm}p{1.5cm}p{2cm}p{1.3cm}}
+            \hline
+            Rank & Design name & 3D nets & Total WL & Max L\\
+            \hline
+            1 & Auto1000 3 & 3301 & 800223.427 & 353.625 \\
+            2 & RandomL3 5 & 3421 & 784257.1375 & 355.1875 \\
+            3 & RandomL3 8 & 2991 & 836486.01 & 324.92 \\
+            \hline
+        \end{tabular}
+    \end{center}
+\end{table}
 
 \subsubsection*{Second scenario: high performance}
 The weights elicitation for this case is represented in Figure~\ref{fig:elicitperf}.
