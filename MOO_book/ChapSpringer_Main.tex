@@ -13,6 +13,10 @@
 \usepackage{textcomp}
 \usepackage{epstopdf}
 \usepackage{natbib}
+\usepackage{longtable}
+\usepackage[labelfont=bf,labelsep=space,font=small]{caption}
+
+\usepackage{lipsum}
 
 \usepackage[pdftex]{graphicx}
 \graphicspath{{./Figures//}}
@@ -133,11 +137,142 @@ GAIA is the result of a principal component analysis applied on this dataset. Th
 % Section3: Case study
 \input{Section3.tex}
 
-\subsection{PROMETHEE modeling}
+\subsection{Multi-criteria analysis}
+With the simulations for the OpenSPARC-T2 SoC, we have obtained 70 designs evaluated on three criteria: the number of 3D nets (to be maximized), the total wire length (to be minimized) and the maximum wire length (to be minimized). These are divided in 7 categories, as shown in Table~\ref{tab:alternatives}.
+
+\begin{small}
+\begin{longtable}{p{2.3cm}p{1.5cm}p{2cm}p{1.3cm}}
+    %\captionsetup{font=normal,labelfont=bf}
+    \caption{OpenSPARC-T2 SoC design alternatives}
+    \label{tab:alternatives}\vspace{-8pt}\\
+    \hline
+    Design name & 3D nets & Total WL & Max L\\
+    \hline
+    Hier L1 1 & 1551 & 1253781.34 & 580.74 \\
+    Hier L1 2 & 3217 & 842376.29 & 381.98 \\
+    Hier L1 3 & 3219 & 815036.54 & 394.12 \\
+    Hier L1 4 & 1551 & 1260965.38 & 552.54 \\
+    Hier L1 5 & 1551 & 1206637.52 & 532.56 \\
+    Hier L1 6 & 1551 & 1260965.38 & 552.54 \\
+    Hier L1 7 & 3219 & 854282.92 & 427.11 \\
+    Hier L1 8 & 3217 & 832211.6 & 389.58 \\
+    Hier L1 9 & 1551 & 1250498.59 & 590.52 \\
+    Hier L1 10 & 1551 & 1173632.4 & 520.6 \\
+    \hline
+    Hier L2 1 & 1551 & 1264331.707 & 545.572 \\
+    Hier L2 2 & 3217 & 828529.875 & 378.24 \\
+    Hier L2 3 & 3219 & 859517.265 & 451.59 \\
+    Hier L2 4 & 1551 & 1250566.685 & 544.65 \\
+    Hier L2 5 & 1551 & 1256812.31 & 586.145 \\
+    Hier L2 6 & 1551 & 1250566.682 & 544.65 \\
+    Hier L2 7 & 3219 & 862537.155 & 417.615 \\
+    Hier L2 8 & 3217 & 843293.522 & 380.585 \\
+    Hier L2 9 & 1551 & 1263855.49 & 541.1 \\
+    Hier L2 10 & 1551 & 1206165.9 & 534.14 \\
+    \hline
+    Hier L3 1 & 45 & 995023.46 & 606.1 \\
+    Hier L3 2 & 50 & 773884.54 & 596.94 \\
+    Hier L3 3 & 45 & 992746.45 & 608.71 \\
+    Hier L3 4 & 45 & 769255.55 & 599.8 \\
+    Hier L3 5 & 45 & 992746.45 & 608.71 \\
+    Hier L3 6 & 45 & 994874.62 & 604.39 \\
+    Hier L3 7 & 45 & 992746.45 & 608.71 \\
+    Hier L3 8 & 50 & 988884.17 & 596.94 \\
+    Hier L3 9 & 50 & 995832.51 & 605.74 \\
+    Hier L3 10 & 45 & 995023.4 & 606.1 \\
+    \hline
+    Auto0500 1 & 74 & 2008363.082 & 614.52 \\
+    Auto0500 2 & 892 & 1842296.135 & 603.315 \\
+    Auto0500 3 & 74 & 2120039.087 & 592.335 \\
+    Auto0500 4 & 892 & 1911618.982 & 606.46 \\
+    Auto0500 5 & 892 & 1842296.135 & 603.315 \\
+    Auto0500 6 & 74 & 1961277.892 & 591.19 \\
+    Auto0500 7 & 74 & 2120039.085 & 592.33 \\
+    Auto0500 8 & 892 & 1842296.142 & 603.31 \\
+    Auto0500 9 & 892 & 1842296.142 & 603.31 \\
+    Auto0500 10 & 892 & 1842296.13 & 603.3 \\
+    \hline
+    Auto1000 1 & 130 & 1795247.45 & 591.345 \\
+    Auto1000 2 & 130 & 1795247.45 & 591.345 \\
+    Auto1000 3 & 3301 & 800223.427 & 353.625 \\
+    Auto1000 4 & 1551 & 1250566.682 & 544.65 \\
+    Auto1000 5 & 1551 & 1256812.31 & 586.14 \\
+    Auto1000 6 & 1551 & 1250566.682 & 544.65 \\
+    Auto1000 7 & 130 & 1795247.45 & 591.345 \\
+    Auto1000 8 & 3217 & 843293.522 & 380.58 \\
+    Auto1000 9 & 1551 & 1197233.495 & 541.69 \\
+    Auto1000 10 & 1551 & 1211404.99 & 518.43 \\
+    \hline
+    RandomL2 1 & 3327 & 845356.947 & 400.27 \\
+    RandomL2 2 & 2853 & 871314.057 & 355.012 \\
+    RandomL2 3 & 3227 & 836782.54 & 451.262 \\
+    RandomL2 4 & 2780 & 881218.65 & 470.167 \\
+    RandomL2 5 & 2766 & 941690.592 & 483.63 \\
+    RandomL2 6 & 3246 & 863068.172 & 428.25 \\
+    RandomL2 7 & 3351 & 799765.04 & 384.1 \\
+    RandomL2 8 & 2853 & 986269.035 & 563.042 \\
+    RandomL2 9 & 2949 & 846481.907 & 357.465 \\
+    RandomL2 10 & 3030 & 866805.157 & 426.855 \\
+    \hline
+    RandomL3 1 & 3270 & 862183.1175 & 487.8075 \\
+    RandomL3 2 & 3123 & 864232.175 & 456.695 \\
+    RandomL3 3 & 2974 & 875502.4425 & 326.9675 \\
+    RandomL3 4 & 2609 & 957730.9975 & 549.7075 \\
+    RandomL3 5 & 3421 & 784257.1375 & 355.1875 \\
+    RandomL3 6 & 3007 & 836500.6825 & 363.0275 \\
+    RandomL3 7 & 2840 & 854184.0025 & 390.09 \\
+    RandomL3 8 & 2991 & 836486.01 & 324.92 \\
+    RandomL3 9 & 2976 & 865025.065 & 545.9425 \\
+    RandomL3 10 & 3157 & 877046.3125 & 463.3975 \\
+    \hline
+\end{longtable}
+\end{small}
 
 \subsubsection{Preliminary analysis}
+As a preliminary analysis, we will first consider the three best unicriterion alternatives: RandomL3~5 (for the number of 3D nets), Hier~3~4 (for the total wire length) and RandomL3 8 (for the maximum wire length), as shown in Table~\ref{tab:bestunicritalt}. These would represent the choice of designers who would have their preferences only on performance (RandomL3 5 and RandomL3~8) or low cost (Hier~L3~4).
 
-\subsubsection{Weight elicitation}
+\begin{table}[h!]
+    \begin{center}
+        \caption{Best unicriterion alternatives}
+        \label{tab:bestunicritalt}
+        \begin{tabular}{p{2.3cm}p{1.5cm}p{2cm}p{1.3cm}}
+            \hline
+            Design name & 3D nets & Total WL & Max L\\
+            \hline
+            RandomL3 5 & 3421 & 784257.1375 & 355.1875 \\
+            Hier L3 4 & 45 & 769255.55 & 599.8 \\
+            RandomL3 8 & 2991 & 836486.01 & 324.92 \\
+            \hline
+        \end{tabular}
+    \end{center}
+\end{table}
+
+By analyzing the evaluations, we can remark that none of these three... [TODO]
+
+With these preliminary analyses, we can already provide valuable multi-criteria information to a designer so that trade-off decisions would be eased. However, until now we only have considered alternatives that are optimal on one of the criteria. These are therefore not necessarily suitable as compromise solutions. In the following we will use and analyze the PROMETHEE methods that will allow us to rank all the alternatives.
+
+\subsubsection{PROMETHEE modeling}
+The first step in the PROMETHEE methods is to model the decision maker's preferences. In our study, we will consider two production scenarios given by an expert in the IC design field. The first one will consider a case where economical aspects are more important than the performances while the second one will put more emphasis on the performances, allowing concession on the price. We will also make the assumption that the preference functions are based on the usual criterion to simplify the questions asked to a designer who is not familiar with preference modeling. We will also elicit the weight of the criteria following a procedure similar to what is used in AHP.
+
+\subsubsection*{First production scenario: low cost}
+The weights elicitation for this case is represented in Figure~\ref{fig:elicitcost}. The designer expresses the preference of a low cost circuit by putting more importance to the maximum wire length and total wire length criterion than on the number of 3D nets criterion. The resulting weights are given as follows: 9.53\% for the number of 3D nets, 24.99\% for the total wire length, and 65.48\% for the maximum wire length.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.6\linewidth]{elicitcost.png}
+    \caption{Weigths elicitation, low cost production scenario}
+    \label{fig:elicitcost}
+\end{figure}
+
+\subsubsection*{Second scenario: high performance}
+The weights elicitation for this case is represented in Figure~\ref{fig:elicitperf}.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.62\linewidth]{elicitperf.png}
+    \caption{Weigths elicitation, high performance production scenario}
+    \label{fig:elicitperf}
+\end{figure}
 
 \subsubsection{Results interpretation for an IC designer}
 
