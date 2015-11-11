@@ -246,7 +246,7 @@ As a preliminary analysis, we will first consider the three best unicriterion al
     \end{center}
 \end{table}
 
-By analyzing the evaluations, we can observe that the Hier~L3~4 alternative, while being the best on the total wire length criterion (by a difference of 1.9\%), is really bad on the two other criteria: only 45 compared to 3421 (1.3\%) for the number of 3D nets, and 599.8 compared to 324.92 (54.2\%) for the maximum wire length. Given these poor evaluations this alternative may not represent a good compromise solutions and it would be necessary to make concession in order to achieve a better overall circuits.
+By analyzing the evaluations, we can observe that the Hier~L3~4 alternative, while being the best on the total wire length criterion (by a difference of 1.9\% compared to the RandomL3~5 alternative), is really bad on the two other criteria: only 45 compared to 3421 (1.3\%) for the number of 3D nets, and 599.8 compared to 324.92 (54.2\%) for the maximum wire length. Given these poor evaluations this alternative may not represent a good compromise solutions and it would be necessary to make concession in order to achieve a better overall circuits.
 
 With these preliminary analyses, we can already provide valuable multi-criteria information to a designer so that trade-off decisions would be eased. However, until now we only have considered alternatives that are optimal on one of the criteria. These are therefore not necessarily suitable as compromise solutions as we have observed previously. In the following we will use and analyze the PROMETHEE methods, with the D-Sight Web platform~\cite{dsightweb,Hayez}, that will allow us to rank all the alternatives and ease a decision process. We will consider two production scenarios given by an expert in the IC design field. The first one will consider a case where economical aspects are more important than the performances while the second one will put more emphasis on the performances, allowing concession on the economical aspects.
 
@@ -262,7 +262,7 @@ The weights elicitation for this case is represented in Figure~\ref{fig:elicitco
     \label{fig:elicitcost}
 \end{figure}
 
-The PROMETHEE II ranking with this preference model is shown in Figure~\ref{fig:rankingcost}. We remark that the three first-ranked alternatives are Auto1000~3, RandomL3~5 and RandomL3~8. Without great surprise, the best unicriterion alternatives on the total wire length and the maximum wire length criteria are well-ranked due to their higher weights while the Hier~L3~4 (best on the number of 3D nets) is only ranked 43rd out of 70.
+The PROMETHEE II ranking with this preference model is shown in Figure~\ref{fig:rankingcost}, with the associated GAIA plane in Figure~\ref{fig:gaiacost}. We remark that the three first-ranked alternatives are Auto1000~3, RandomL3~5 and RandomL3~8. Without great surprise, the best unicriterion alternatives on the total wire length and the maximum wire length criteria are well-ranked due to their higher weights while the Hier~L3~4 (best on the number of 3D nets) is only ranked 43rd out of 70. On the GAIA plane, we can observe that the number of 3D nets axis and the total wire length axis are orthogonal while the maximum wire length axis is in between (but closer to the number of 3D nets). This indeed reflects that performance (number of 3D nets) are in conflict with economical aspects (total wire length) while the maximum wire length criterion considers both.
 
 \begin{figure}[h!]
     \centering
@@ -271,7 +271,14 @@ The PROMETHEE II ranking with this preference model is shown in Figure~\ref{fig:
     \label{fig:rankingcost}
 \end{figure}
 
-Let us now analyze the Auto1000~3 alternative compared to the second and third ones with their evaluations, as shown in Table~\ref{tab:top3cost}.
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=\linewidth]{gaiacost}
+    \caption{Low cost production scenario: GAIA plane}
+    \label{fig:gaiacost}
+\end{figure}
+
+Let us now analyze the Auto1000~3 alternative compared to the second and third ones with their evaluations, as shown in Table~\ref{tab:top3cost}. We observe that, while it is not the best on the criterion with the highest weight (maximum wire length), its evaluations on the other criteria are more balanced which justify its ranking as first.
 
 \begin{table}[h!]
     \begin{center}
@@ -290,7 +297,7 @@ Let us now analyze the Auto1000~3 alternative compared to the second and third o
 \end{table}
 
 \subsubsection*{Stability analysis}
-Since the weigths have been elicited through a procedure similar to what is used in AHP, it is necessary to analyze whether a slight change in their value will affect the ranking. The stability intervals for each criterion is shown in Figure~\ref{fig:stabilitycost}. As we can observe, the possibilities of weight modification are rather large, which means that the Auto1000~3 is a stable compromise solution for this low cost production scenario.
+Since the weigths have been elicited through a procedure similar to what is used in AHP, it is necessary to analyze whether a slight change in their value will affect the ranking. The stability intervals for each criterion is shown in Figure~\ref{fig:stabilitycost}. As we can observe, the possibilities of weight modification are rather large, which means that the Auto1000~3 alternative is a stable compromise solution for this low cost production scenario.
 
 \begin{figure}[h!]
     \centering
@@ -309,7 +316,7 @@ The weights elicitation for this case is represented in Figure~\ref{fig:elicitpe
     \label{fig:elicitperf}
 \end{figure}
 
-The PROMETHEE II ranking with this preference model is shown in Figure~\ref{fig:rankingperf}. We remark that the three first-ranked alternatives are RandomL3~5, Auto1000~3 and RandomL2~7. Without great surprise, the best unicriterion alternative on the number of 3D nets criterion is ranked first.
+The PROMETHEE II ranking with this preference model is shown in Figure~\ref{fig:rankingperf}, with the associated GAIA plane in Figure~\ref{fig:gaiaperf} . We remark that the three first-ranked alternatives are RandomL3~5, Auto1000~3 and RandomL2~7. Without great surprise, the best unicriterion alternative on the number of 3D nets criterion is ranked first. Another interesting observation is that the RandomL3~5 has actually switched its ranking with the Auto1000~3 alternative which is ranked first for the low cost production scenario. This could mean that it can be a good compromise if concessions were to be made on the performance in order to improve the economical aspects. As for the GAIA plane, it is indeed similar than the one for the low cost production scenario, except that the decision axis has moved closer to the total wire length axis.
 
 \begin{figure}[h!]
     \centering
@@ -317,6 +324,15 @@ The PROMETHEE II ranking with this preference model is shown in Figure~\ref{fig:
     \caption{High performance production scenario: PROMETHEE II ranking}
     \label{fig:rankingperf}
 \end{figure}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=\linewidth]{gaiaperf}
+    \caption{High performance production scenario: GAIA plane}
+    \label{fig:gaiaperf}
+\end{figure}
+
+An analysis of the evaluation of the RandomL3~5 alternative shows that, while it is not the best on the criterion with the highest weight (number of 3D nets), its evaluations on the other criteria are more balanced which justify its ranking as first.
 
 \begin{table}[h!]
     \begin{center}
@@ -335,6 +351,7 @@ The PROMETHEE II ranking with this preference model is shown in Figure~\ref{fig:
 \end{table}
 
 \subsubsection*{Stability analysis}
+The stability intervals for each criterion is shown in Figure~\ref{fig:stabilitycost}. As we can observe, the possibilities of weight modification are also large for this case, which means that the RandomL3~5 alternative is a stable compromise solution for this high performance production scenario.
 
 \begin{figure}[h!]
     \centering
