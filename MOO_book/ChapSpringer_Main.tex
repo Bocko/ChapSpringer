@@ -15,7 +15,6 @@
 \usepackage{natbib}
 \usepackage{longtable}
 \usepackage[labelfont=bf,labelsep=space,font=small]{caption}
-
 \usepackage{lipsum}
 
 \usepackage[pdftex]{graphicx}
@@ -138,7 +137,7 @@ GAIA is the result of a principal component analysis applied on this dataset. Th
 \input{Section3.tex}
 
 \subsection{Multi-criteria analysis}
-With the simulations for the OpenSPARC-T2 SoC, we have obtained 70 designs evaluated on three criteria: the number of 3D nets (to be maximized), the total wire length (to be minimized) and the maximum wire length (to be minimized). These are divided in 7 categories, as shown in Table~\ref{tab:alternatives}.
+With the simulations for the OpenSPARC-T2 SoC, we have obtained 70 designs evaluated on three criteria: the number of 3D nets (to be maximized), the total wire length (to be minimized) and the maximum wire length (to be minimized). The number of 3D nets represents a measure of the performance of a circuit, the total wire length its economical aspects while the maximum wire length will reflect both performance and cost. The alternatives are divided in 7 categories, as shown in Table~\ref{tab:alternatives}.
 
 \begin{small}
 \begin{longtable}{p{2.3cm}p{1.5cm}p{2cm}p{1.3cm}}
@@ -229,7 +228,7 @@ With the simulations for the OpenSPARC-T2 SoC, we have obtained 70 designs evalu
 \end{small}
 
 \subsubsection{Preliminary analysis}
-As a preliminary analysis, we will first consider the three best unicriterion alternatives: RandomL3~5 (for the number of 3D nets), Hier~3~4 (for the total wire length) and RandomL3 8 (for the maximum wire length), as shown in Table~\ref{tab:bestunicritalt}. These would represent the choice of designers who would have their preferences only on performance (RandomL3 5 and RandomL3~8) or low cost (Hier~L3~4).
+As a preliminary analysis, we will first consider the three best unicriterion alternatives as the designers can be interested to know how the circuits are performing on each parameter: RandomL3~5 (for the number of 3D nets), Hier~L3~4 (for the total wire length) and RandomL3 8 (for the maximum wire length), as shown in Table~\ref{tab:bestunicritalt}. These would represent the choice of designers who would have their preferences only on performance or on low cost.
 
 \begin{table}[h!]
     \begin{center}
@@ -247,15 +246,14 @@ As a preliminary analysis, we will first consider the three best unicriterion al
     \end{center}
 \end{table}
 
-By analyzing the evaluations, we can remark that none of these three... [TODO]
+By analyzing the evaluations, we can observe that the Hier~L3~4 alternative, while being the best on the total wire length criterion (by a difference of 1.9\%), is really bad on the two other criteria: only 45 compared to 3421 (1.3\%) for the number of 3D nets, and 599.8 compared to 324.92 (54.2\%) for the maximum wire length. Given these poor evaluations this alternative may not represent a good compromise solutions and it would be necessary to make concession in order to achieve a better overall circuits.
 
-With these preliminary analyses, we can already provide valuable multi-criteria information to a designer so that trade-off decisions would be eased. However, until now we only have considered alternatives that are optimal on one of the criteria. These are therefore not necessarily suitable as compromise solutions. In the following we will use and analyze the PROMETHEE methods, with the D-Sight Web platform~\cite{dsightweb,Hayez}, that will allow us to rank all the alternatives.
+With these preliminary analyses, we can already provide valuable multi-criteria information to a designer so that trade-off decisions would be eased. However, until now we only have considered alternatives that are optimal on one of the criteria. These are therefore not necessarily suitable as compromise solutions as we have observed previously. In the following we will use and analyze the PROMETHEE methods, with the D-Sight Web platform~\cite{dsightweb,Hayez}, that will allow us to rank all the alternatives and ease a decision process. We will consider two production scenarios given by an expert in the IC design field. The first one will consider a case where economical aspects are more important than the performances while the second one will put more emphasis on the performances, allowing concession on the economical aspects.
 
-\subsubsection{PROMETHEE modeling}
-The first step in the PROMETHEE methods is to model the decision maker's preferences. In our study, we will consider two production scenarios given by an expert in the IC design field. The first one will consider a case where economical aspects are more important than the performances while the second one will put more emphasis on the performances, allowing concession on the price. We will also make the assumption that the preference functions are based on the usual criterion to simplify the questions asked to a designer who is not familiar with preference modeling. We will also elicit the weight of the criteria following a procedure similar to what is used in AHP.
+\subsubsection{PROMETHEE modeling: low cost production scenario}
+The first step in the PROMETHEE methods is to model the decision maker's preferences. In our study, we will make the assumption that the preference functions are based on the usual criterion to simplify the questions asked to a designer who is not familiar with preference modeling. We will also elicit the weight of the criteria following a procedure similar to what is used in AHP.
 
-\subsubsection*{First production scenario: low cost}
-The weights elicitation for this case is represented in Figure~\ref{fig:elicitcost}. The designer expresses the preference of a low cost circuit by putting more importance to the maximum wire length and total wire length criterion than on the number of 3D nets criterion. The resulting weights are given as follows: 9.53\% for the number of 3D nets, 24.99\% for the total wire length, and 65.48\% for the maximum wire length.
+The weights elicitation for this case is represented in Figure~\ref{fig:elicitcost}. The designer expresses the preference for a low cost circuit by putting more importance to the maximum wire length and total wire length criterion than on the number of 3D nets criterion. The resulting weights are given as follows: 9.53\% for the number of 3D nets, 24.99\% for the total wire length, and 65.48\% for the maximum wire length.
 
 \begin{figure}[h!]
     \centering
@@ -264,16 +262,16 @@ The weights elicitation for this case is represented in Figure~\ref{fig:elicitco
     \label{fig:elicitcost}
 \end{figure}
 
-The PROMETHEE II ranking with this preference model is shown in Figure~\ref{fig:rankingcost}. We remark that the three first-ranked alternatives are Auto1000~3, RandomL3~5 and RandomL3~8. Without great surprise, the best unicriterion alternatives on the total wire length and the maximum wire length criteria are well-ranked due to their higher weights while the Hier~L3~4 (best on the number of 3D nets) is ranked 43rd out of 70.
+The PROMETHEE II ranking with this preference model is shown in Figure~\ref{fig:rankingcost}. We remark that the three first-ranked alternatives are Auto1000~3, RandomL3~5 and RandomL3~8. Without great surprise, the best unicriterion alternatives on the total wire length and the maximum wire length criteria are well-ranked due to their higher weights while the Hier~L3~4 (best on the number of 3D nets) is only ranked 43rd out of 70.
 
 \begin{figure}[h!]
     \centering
     \includegraphics[width=\linewidth]{rankingcost}
-    \caption{low cost production scenario: PROMETHEE II ranking}
+    \caption{Low cost production scenario: PROMETHEE II ranking}
     \label{fig:rankingcost}
 \end{figure}
 
-Let us now analyze the Auto1000~3 alternative compared to the second and third ones with their evaluations, as shown in Table~\ref{tab:top3cost}
+Let us now analyze the Auto1000~3 alternative compared to the second and third ones with their evaluations, as shown in Table~\ref{tab:top3cost}.
 
 \begin{table}[h!]
     \begin{center}
@@ -291,17 +289,62 @@ Let us now analyze the Auto1000~3 alternative compared to the second and third o
     \end{center}
 \end{table}
 
-\subsubsection*{Second scenario: high performance}
-The weights elicitation for this case is represented in Figure~\ref{fig:elicitperf}.
+\subsubsection*{Stability analysis}
+Since the weigths have been elicited through a procedure similar to what is used in AHP, it is necessary to analyze whether a slight change in their value will affect the ranking. The stability intervals for each criterion is shown in Figure~\ref{fig:stabilitycost}. As we can observe, the possibilities of weight modification are rather large, which means that the Auto1000~3 is a stable compromise solution for this low cost production scenario.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=\linewidth]{stabilitycost}
+    \caption{Low cost production scenario: weigths stability intervals}
+    \label{fig:stabilitycost}
+\end{figure}
+
+\subsubsection{PROMETHEE modeling: high performance production scenario}
+The weights elicitation for this case is represented in Figure~\ref{fig:elicitperf}. The designer expresses the preference for a high performance circuit by putting more importance to the number of 3D nets criterion and maximum wire length criterion than on the total wire length criterion. The resulting weights are given as follows: 59.36\% for the number of 3D nets, 15.71\% for the total wire length, and 24.93\% for the maximum wire length.
 
 \begin{figure}[h!]
     \centering
     \includegraphics[width=0.62\linewidth]{elicitperf.png}
-    \caption{Weigths elicitation, high performance production scenario}
+    \caption{High performance production scenario: weigths elicitation}
     \label{fig:elicitperf}
 \end{figure}
 
+The PROMETHEE II ranking with this preference model is shown in Figure~\ref{fig:rankingperf}. We remark that the three first-ranked alternatives are RandomL3~5, Auto1000~3 and RandomL2~7. Without great surprise, the best unicriterion alternative on the number of 3D nets criterion is ranked first.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=\linewidth]{rankingperf}
+    \caption{High performance production scenario: PROMETHEE II ranking}
+    \label{fig:rankingperf}
+\end{figure}
+
+\begin{table}[h!]
+    \begin{center}
+        \caption{High performance production scenario: top 3}
+        \label{tab:top3perf}
+        \begin{tabular}{p{1.2cm}p{2.3cm}p{1.5cm}p{2cm}p{1.3cm}}
+            \hline
+            Rank & Design name & 3D nets & Total WL & Max L\\
+            \hline
+            1 & RandomL3 5 & 3421 & 784257.1375 & 355.1875 \\
+            2 & Auto1000 3 & 3301 & 800223.427 & 353.625 \\
+            3 & RandomL2 7 & 3351 & 799765.04 & 384.1 \\
+            \hline
+        \end{tabular}
+    \end{center}
+\end{table}
+
+\subsubsection*{Stability analysis}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=\linewidth]{stabilityperf}
+    \caption{High performance production scenario: weigths stability intervals}
+    \label{fig:stabilityperf}
+\end{figure}
+
 \subsubsection{Results interpretation for an IC designer}
+
 
 \section{Conclusion and future works}
 
